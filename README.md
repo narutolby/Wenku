@@ -1,3 +1,4 @@
-J2eeProjectTemplateWithSpringAndHibernate
+Wenku
 =========================================
-一个J2ee工程基础框架模板，用maven维护，已经做好依赖，采用spring，spring mvc，hibernat框架.
+一个类似百度文库的文档共享系统，支持文档的快速上传，下载，预览等功能。
+利用flexpaper作前端文档展示，openoffice负责office文档对word的转换，swftools负责pdf转swf
