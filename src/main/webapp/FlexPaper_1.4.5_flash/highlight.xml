@@ -1,0 +1,8 @@
+<XML>
+<Body units='characters' color='#ff00ff' mode='active' version='2'>
+<Highlight>
+	<loc pg='0' pos='0' len='6' />
+	<loc pg='2' pos='1' len='10' />
+</Highlight>
+</Body>
+</XML>

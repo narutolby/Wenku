@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+    
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maxActive" value="${jdbc.maxActive}"/>
+        <property name="maxIdle" value="${jdbc.maxIdle}"/>
+        <property name="maxWait" value="${jdbc.maxWait}"/>
+        <property name="validationQuery" value="select 1 from dual" />
+		<property name="testOnBorrow" value="true" />
+    </bean>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" >
+		<property name="dataSource" ref="dataSource"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>
+				<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.id.new_generator_mappings">true</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+                <prop key="hibernate.connection.isolation">${hibernate.connection.isolation}</prop>
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="com.bupt.domain" />
+	</bean>
+    <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <!-- the transactional advice (what 'happens'; see the <aop:advisor/> bean below) -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <!-- the transactional semantics... -->
+        <tx:attributes>
+            <!-- 所有以'get'、'find'、'load'开头的方法是只读事物 -->
+            <tx:method name="get*" propagation="REQUIRED" isolation="DEFAULT" />
+            <tx:method name="find*" read-only="true" />
+            <tx:method name="load*" read-only="true" />
+            <tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT"  />
+            <tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT"  />
+            <tx:method name="download*" propagation="REQUIRED" isolation="DEFAULT"  />
+            <!-- 其他方法使用默认的事务设置 -->
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    <tx:annotation-driven transaction-manager="txManager"/>
+    <!-- ensure that the above transactional advice runs for any execution
+of an operation defined by the FooService interface -->
+    <aop:config>
+        <aop:pointcut id="brServiceOperation" expression="execution(* com.bupt.service.*.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="brServiceOperation"/>
+    </aop:config>
+    <!--<bean id="hibernateInterceptor"
+          class="org.springframework.orm.hibernate3.HibernateInterceptor">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>-->
+</beans>

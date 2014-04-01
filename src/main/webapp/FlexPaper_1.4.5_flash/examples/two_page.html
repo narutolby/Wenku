@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">	
+    <head> 
+        <title>FlexPaper</title>         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <style type="text/css" media="screen"> 
+			html, body	{ height:100%; }
+			body { margin:0; padding:0; overflow:auto; }   
+			#flashContent { display:none; }
+        </style> 
+		
+		<script type="text/javascript" src="../js/flexpaper_flash.js"></script>
+    </head> 
+    <body> 
+    	<div style="position:absolute;left:10px;top:10px;">
+	        <a id="viewerPlaceHolder" style="width:660px;height:480px;display:block"></a>
+	        
+	        <script type="text/javascript"> 
+				var fp = new FlexPaperViewer(	
+						 '../FlexPaperViewer',
+						 'viewerPlaceHolder', { config : {
+						 SwfFile : '../Paper.swf',
+						 Scale : 0.6, 
+						 ZoomTransition : 'easeOut',
+						 ZoomTime : 0.5,
+						 ZoomInterval : 0.2,
+						 FitPageOnLoad : true,
+						 FitWidthOnLoad : false,
+						 PrintEnabled : true,
+						 FullScreenAsMaxWindow : false,
+						 ProgressiveLoading : false,
+						 MinZoomSize : 0.2,
+						 MaxZoomSize : 5,
+						 SearchMatchAll : false,
+						 InitViewMode : 'TwoPage',
+						 
+						 ViewModeToolsVisible : true,
+						 ZoomToolsVisible : true,
+						 NavToolsVisible : true,
+						 CursorToolsVisible : true,
+						 SearchToolsVisible : true,
+  						
+  						 localeChain: 'en_US'
+						 }});
+	        </script>
+	        
+	           
+        </div>
+        
+        
+		<!-- THE FOLLOWING CODE BLOCK CAN SAFELY BE REMOVED, IT IS ONLY PLACED HERE TO HELP YOU GET STARTED. -->
+        <div style="position:absolute;left:680px;height:480px;top:10px;font-family:Verdana;font-size:9pt;background-color:#CACACA;width:300px">
+			<div style="padding: 5px 5px 5px 5px;font-size:15px;font-weight:bold;text-align:center;margin-top:10px;">FlexPaper Two-Page Mode</div>
+
+			<div style="padding: 5px 5px 5px 5px;font-size:11px;text-align:left;margin-bottom:10px;">This example shows how FlexPaper can be set to start up in 'Two-Page' mode from the start.</div>
+			<div style="background-color:#EFEFEF">
+				<div style="padding: 5px 5px 5px 5px;font-size:15px;font-weight:bold;text-align:center;margin-top:50px;">More Examples</div>
+				<div style="padding: 5px 5px 5px 5px;font-size:11px;text-align:left;margin-bottom:10px;line-height:150%">
+						» <a href="two_page.html">FlexPaper starting up in Two-Page mode</a><br/>
+						» <a href="interactive_API.html">Interactive API html page</a><br/>
+						» <a href="searchmatchall.html">Search and highlight all matches</a><br/>
+						</div>
+						
+				<div style="padding: 5px 5px 5px 5px;font-size:15px;font-weight:bold;text-align:center;margin-top:50px;">Publishing with PHP</div>
+				<div style="padding: 5px 5px 5px 5px;font-size:11px;text-align:left;margin-bottom:10px;line-height:150%">
+						» <a href="../php/simple_document.php">On the fly conversion (requires PHP5)</a><br/>
+						» <a href="../php/split_document.php">Split file conversion (requires PHP5)</a>
+				</div>
+						
+				<div style="padding: 5px 5px 5px 5px;font-size:15px;font-weight:bold;text-align:center;margin-top:50px;">Documentation</div>
+				<div style="padding: 5px 5px 5px 5px;font-size:11px;text-align:left;margin-bottom:10px;line-height:150%">
+						» <a href="http://flexpaper.devaldi.com/docs_converting.jsp">Converting Documents</a><br/>
+						» <a href="http://flexpaper.devaldi.com/docs_parameters.jsp">Parameters</a><br/>
+						» <a href="http://flexpaper.devaldi.com/docs_api.jsp">API</a><br/>
+				</div>			
+			</div>					
+		</div>
+   </body> 
+</html> 

@@ -1,0 +1,152 @@
+XX Jun 2011 (Version 1.4.5)
+» A number of bugs corrected for split file loader
+» Documents with different size pages should now be calculated and show properly
+
+
+23 May 2011 (Version 1.4.5 rc1) 
+» Split file loader implemented for large documents 
+» A number of bugs corrected for two-page viewing mode 
+» New language added: hebrew 
+» Two new API methods added: prevSearchMatch() and nextSearchMatch() to be used together with SearchMatchAll? to be able to iterate through search matches 
+» New PHP sample added for converting and displaying documents on the fly 
+» Support for images added (through the split file loader method)
+
+
+12 Apr 2011 (Version 1.4.2) 
+» New method for highlighting text following Adobe's highlighting XML specification 
+» New parameter: SearchMatchAll? matches and highlights all hits in a document 
+» Improved ability for Google to find documents for indexing 
+» New method for taking a snapshot of the viewer and posting this snapshot to a given url (useful for creating thumbnails) 
+» Improved two-page mode allowing zooming in and out with a click 
+» Various issues corrected 
+
+
+12 Dec 2010 (Version 1.4.1) (build/revision 450) 
+» Beta build for Adobe Flex SDK 4 added 
+» Various mouse wheel scrolling issues corrected for OS X 
+» New event added per request: onDocumentPrinted 
+» Issue related to print range corrected 
+» A number of parameters related to hiding and showing buttons removed and instead replaced with a ReadOnly? property for viewing documents in readonly mode 
+» Issue related to mouse wheel scrolling corrected when using opaque mode 
+» Issue related to caps lock searching corrected 
+» Issue related to showing the max number of pages being cut off 
+» Issue related to locale not being passed on in fullscreen mode corrected 
+
+
+2 Sept 2010 (Version 1.4.0) (build/revision 402) 
+» Mouse wheel scrolling corrected for OS X 
+» Unicode mapping fix for some incorrectly mapped characters 
+» Text and search selection does not cause drawing overlap any longer 
+» Issue related to onDocumentLoaded event fired at the wrong time corrected 
+
+
+20 Aug 2010 (Version 1.4.0 RC 2) (build/revision 389) 
+» New set of parameters added which can be used to show and hide different sections of the toolbar. See the Parameters page for more details 
+» Various issues corrected related to but not limited to; memory management, toolbar layout, 
+» New debug page added for the new API functions. See the top link on the API page. 
+
+12 Aug 2010 (Version 1.4.0 RC 1) (build/revision 370) 
+» Two-page view added 
+» New API methods and events implemented. See the API page for more details. 
+
+
+26 Jul 2010 (Version 1.4.0 beta 1 (build/revision 350) 
+» Select/copy text implemented 
+» Many new API methods and events implemented. Details to follow 
+
+
+29 Jun 2010 (Version 1.3.1 (build/revision 345) 
+» Regression error related to calculating certain page heights corrected 
+» Regression error related to calculating current page in thumb view corrected 
+
+
+21 Jun 2010 (Version 1.3 final & 1.3.1) 
+» New method added for loading new documents (LoadSwf?) without having to reload FlexPaper?. See the API page for more details 
+» Memory issues corrected related to changing document 
+» Current Page indicator bug corrected 
+» 1.3 contained bug related to unloading previous document which was affecting some scenarios of loading documents. Should be corrected in 1.3.1 
+
+23 May 2010 (Version 1.3 rc1) 
+» Issue corrected related to loading certain SWF files with incorrect headers (affecting ubuntu and 1-page documents). Progressive loading now more robust in its way of loading faulty documents in general 
+» Zoom bug corrected related to certain events getting fired at the wrong time 
+
+
+18 May 2010 (Version 1.3 beta) 
+» Progressive loading implemented. See the Parameters page for more details. 
+» Performance improvements in how pages are drawn to cope with large bitmaps 
+» Legal pages are now displayed with proper sizes both in viewer and when printed 
+» Fixed various centering issues 
+» Fixed memory leak coming from BitmapData? not being disposed properly 
+» Double clicking the document now switches between fit width & fit height 
+» Various fixes for unstable / inaccurate searches 
+» Searching a text string should now focus the viewer on the actual string making it easier to see the match 
+» ... and a whole lot of minor issues posted to the issues list 
+
+
+28 March 2010 (Version 1.2.4) 
+» Fixed a regression issue coming from previous fix for malformed headers. 
+» Fixed a issue relating to clearing out selection marker objects (for the search) 
+
+
+22 March 2010 (Version 1.2.3) 
+» Fixed issue relating to malformed header causing documents generated with PDF2SWF in Ubuntu to fail to show 
+» In-document links now working. Make sure you generate your document with all the recommended parameters (see Converting_Documents) for this to work 
+» More languages added: 
+  fi_FN 
+  de_DE 
+  nl_NL 
+  tr_TR 
+  se_SE 
+  pt_PT 
+  el_EL 
+  da_DN 
+  cz_CS 
+  it_IT 
+  pl_PL 
+  pv_FN 
+  hu_HU 
+
+16 March 2010 (Version 1.2.2) 
+» Issue causing FlexPaper? to fail in Adobe AIR fixed 
+» Three more languages added: 
+  es_ES (Spanish) 
+  pt_BR (Brazilian Portugese) 
+  ru_RU (Russian) 
+» New parameter added "FullScreenAsMaxWindow?" allowing fullscreen mode to open a new brower window maximized rather than using true fullscreen. See the Parameters page for more details. 
+» Issue fixed related to resizing the window where FlexPaper? did not resize properly 
+» Mouse Wheel scrolling issue fixed. Mouse wheel scrolling should now behave properly in embedded web pages. The Javascript used in the FlexPaper? example is part of the solution so make sure you update your javascript accordingly (see the block with the new handleWheel function). 
+» Fit Width/Fit Height setting now maintained when switching to full screen mode 
+
+
+22 February 2010 (Version 1.2.1) 
+» 2 new languages added. The following languages can now be set (see the Parameters page for more details) : 
+  en_US (English) 
+  fr_FR (French) 
+  zh_CN (Chinese Simple) 
+
+
+1 February 2010 (Version 1.2) 
+» Print dialogue added to allow specific pages to be printed 
+» Navigational buttons (next/prev) 
+» Fullscreen mode 
+» Tabbing order of buttons 
+» Performance improvements for how pages are rendered 
+» New parameters: PrintEnabled?, FitWidthOnLoad?, FitPageOnLoad?, ZoomInterval?, ZoomTime?, ZoomTransition?. Please see the Wiki for an explanation of these parameters. 
+
+
+4 January 2010 (Version 1.1.1) 
+» Corrected a memory leak appearing in thumb view 
+» Improved scrolling performance in thumb view 
+
+
+3 January 2010 (Version 1.1) 
+» Search function added 
+» Added arrows/up down and mouse drag navigation 
+» Adjusted toolbar width/height and tooltips 
+» Small performance issue corrected 
+
+
+13 December 2009 (Version 1.0) 
+» Added page number input box & indicator 
+» Optimized the way pages are loaded to be able to handle large documents (many pages) 
+» Corrected a problem where the pages did not load due to too many simultaneous pages loading at once (now loading in a sequence)
